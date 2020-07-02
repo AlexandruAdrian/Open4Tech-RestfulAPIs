@@ -20,8 +20,33 @@ function questionRoutes() {
     }
   });
 
+  router.get("/questions/:id", async (req, res) => {
+    try {
+      const question = await Question.getQuestionById(req.params.id);
+      if (question) {
+        return res.status(200).json(question);
+      }
+
+      res.sendStatus(404);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+  });
+
   router.post("/questions", async (req, res) => {
     try {
+      if (!req.body.question || !req.body.answer) {
+        return res.sendStatus(400);
+      }
+
+      if (
+        req.body.question.trim().length === 0 ||
+        req.body.answer.trim().length === 0
+      ) {
+        return res.sendStatus(400);
+      }
+
       const generatedId = await Question.generateId();
       const q = new Question(generatedId, req.body.question, req.body.answer);
       q.saveToFile();

@@ -81,6 +81,16 @@ class Question {
     Question.getQuestions();
   }
 
+  static async getQuestionById(id) {
+    // Make sure we have the latest version of the file
+    await Question.getQuestions();
+    const questionPos = Question.questions.find((q, index) =>
+      q.id === parseInt(id) ? index : undefined
+    );
+
+    return questionPos;
+  }
+
   static async getQuestions() {
     try {
       const checkFile = util.promisify(fs.access);
