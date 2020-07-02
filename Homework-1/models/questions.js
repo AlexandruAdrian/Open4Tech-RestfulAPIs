@@ -1,4 +1,5 @@
 const fs = require("fs");
+const util = require("util");
 
 class Question {
   static questions = [];
@@ -61,6 +62,22 @@ class Question {
         }
       }
     );
+  }
+
+  static async getQuestions() {
+    try {
+      const checkFile = util.promisify(fs.access);
+      await checkFile(Question.QUESTIONS_FILE);
+    } catch (err) {
+      Question.questions = [];
+      return Question.questions;
+    }
+    const readFile = util.promisify(fs.readFile);
+
+    const data = await readFile(Question.QUESTIONS_FILE, "utf8");
+    Question.questions = JSON.parse(data);
+
+    return Question.questions;
   }
 }
 
