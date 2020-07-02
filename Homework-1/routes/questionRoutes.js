@@ -22,7 +22,8 @@ function questionRoutes() {
 
   router.post("/questions", async (req, res) => {
     try {
-      const q = new Question(id++, req.body.question, req.body.answer);
+      const generatedId = await Question.generateId();
+      const q = new Question(generatedId, req.body.question, req.body.answer);
       q.saveToFile();
 
       res.status(201).json(q.getData());
