@@ -1,7 +1,6 @@
 const express = require("express");
 const Question = require("../models/questions");
 
-let id = 0;
 function questionRoutes() {
   const router = express.Router();
 
@@ -56,6 +55,11 @@ function questionRoutes() {
       console.error(err);
       res.sendStatus(500);
     }
+  });
+
+  router.delete("/questions/:id", (req, res) => {
+    Question.deleteQuestion(req.params.id);
+    res.sendStatus(204);
   });
 
   return router;

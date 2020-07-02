@@ -1,5 +1,6 @@
 const fs = require("fs");
 const util = require("util");
+const { parse } = require("path");
 
 class Question {
   static questions = [];
@@ -58,16 +59,7 @@ class Question {
     return 0;
   }
 
-  saveToFile() {
-    // Get data from the file into the memory
-    Question.getQuestions();
-    // Push data into the memory
-    Question.questions.push({
-      id: this.getId(),
-      question: this.getQuestion(),
-      answer: this.getAnswer(),
-    });
-    // Then save the memory to the file
+  static updateFile() {
     fs.writeFile(
       Question.QUESTIONS_FILE,
       JSON.stringify(Question.questions),
@@ -77,18 +69,35 @@ class Question {
         }
       }
     );
+  }
+
+  static async findQuestionPos(id) {
+    // Make sure we have the latest version of the file
+    await Question.getQuestions();
+    const pos = Question.questions.findIndex((q) => q.id === parseInt(id));
+
+    return pos;
+  }
+
+  saveToFile() {
+    // Get data from the file into the memory
+    Question.getQuestions();
+    // Push data into the memory
+    Question.questions.push({
+      id: this.getId(),
+      question: this.getQuestion(),
+      answer: this.getAnswer(),
+    });
+
+    Question.updateFile();
     // Refresh the memory with the newly updated file
     Question.getQuestions();
   }
 
   static async getQuestionById(id) {
-    // Make sure we have the latest version of the file
-    await Question.getQuestions();
-    const questionPos = Question.questions.find((q, index) =>
-      q.id === parseInt(id) ? index : undefined
-    );
+    const questionPos = await Question.findQuestionPos(id);
 
-    return questionPos;
+    return Question.questions[questionPos];
   }
 
   static async getQuestions() {
@@ -109,6 +118,16 @@ class Question {
     }
 
     return Question.questions;
+  }
+
+  static async deleteQuestion(id) {
+    const questionPos = await Question.findQuestionPos(id);
+    // Remove question from the array
+    Question.questions.splice(questionPos, 1);
+
+    Question.updateFile();
+    // Refresh the memory with the newly updated file
+    Question.getQuestions();
   }
 }
 
