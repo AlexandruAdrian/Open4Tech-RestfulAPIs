@@ -57,9 +57,39 @@ function questionRoutes() {
     }
   });
 
-  router.delete("/questions/:id", (req, res) => {
-    Question.deleteQuestion(req.params.id);
-    res.sendStatus(204);
+  router.delete("/questions/:id", async (req, res) => {
+    try {
+      await Question.deleteQuestion(req.params.id);
+      res.sendStatus(204);
+    } catch (err) {
+      console.err(err);
+      res.sendStatus(500);
+    }
+  });
+
+  router.put("/questions/:id", async (req, res) => {
+    try {
+      if (!req.body.question || !req.body.answer) {
+        return res.sendStatus(400);
+      }
+
+      if (
+        req.body.question.trim().length === 0 ||
+        req.body.answer.trim().length === 0
+      ) {
+        return res.sendStatus(400);
+      }
+
+      const updatedQuestion = await Question.updateQuestion(
+        req.params.id,
+        req.body
+      );
+
+      res.status(200).json(updatedQuestion);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
   });
 
   return router;

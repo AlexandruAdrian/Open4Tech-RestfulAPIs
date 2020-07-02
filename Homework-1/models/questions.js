@@ -1,6 +1,5 @@
 const fs = require("fs");
 const util = require("util");
-const { parse } = require("path");
 
 class Question {
   static questions = [];
@@ -72,7 +71,7 @@ class Question {
   }
 
   static async findQuestionPos(id) {
-    // Make sure we have the latest version of the file
+    // Make sure we have the latest version of the file into the memory
     await Question.getQuestions();
     const pos = Question.questions.findIndex((q) => q.id === parseInt(id));
 
@@ -124,10 +123,18 @@ class Question {
     const questionPos = await Question.findQuestionPos(id);
     // Remove question from the array
     Question.questions.splice(questionPos, 1);
-
     Question.updateFile();
     // Refresh the memory with the newly updated file
     Question.getQuestions();
+  }
+
+  static async updateQuestion(id, body) {
+    const questionPos = await this.findQuestionPos(id);
+
+    Question.questions[questionPos].question = body.question;
+    Question.questions[questionPos].answer = body.answer;
+    Question.updateFile();
+    return Question.questions[questionPos];
   }
 }
 
