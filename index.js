@@ -4,7 +4,7 @@ const app = express();
 require("dotenv").config();
 
 // Connect to db
-const url = process.env.DB_URL;
+const url = process.env.MONGODB_URI;
 const config = {
   db: "Open4Tech",
 };
