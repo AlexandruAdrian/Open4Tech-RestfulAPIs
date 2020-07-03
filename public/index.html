@@ -16,31 +16,40 @@
       >
     </p>
     <h2>Info about routes</h2>
-    <h3>Reviews</h3>
+    <h3>Questions</h3>
     <ul>
       <li>
-        <strong>GET - /reviews</strong> - Retrieves all the reviews.
+        <strong>GET - /questions</strong> - Retrieves all the questions and
+        asnwers.
       </li>
       <li>
-        <strong></strong>GET - /review/:id</strong> - Retrieves one review based on the passed id
+        <strong>GET - /question/:id</strong> - Retrieves one question based on
+        the passed id
       </li>
       <li>
-        <strong>POST - /reviews</strong>  - Requires the body to hold two JSON properties:
+        <strong>POST - /questions</strong> - Requires the body to hold two JSON
+        properties:
         <ul>
-          <li>subject</li>
-          <li>review</li>
+          <li>question</li>
+          <li>answer</li>
         </ul>
       </li>
       <li>
-        <strong>DELETE - /reviews/:id</strong> - Deletes one review based on the passed id
+        <strong>DELETE - /questions/:id</strong> - Deletes one question based on
+        the passed id
       </li>
-      <li><strong>PUT - /reviews/:id</strong> - Updates one review based on the id and requires the body to hold two JSON properties:
+      <li>
+        <strong>PUT - /questions/:id</strong> - Updates one question based on
+        the id and requires the body to hold two JSON properties:
         <ul>
-          <li>subject</li>
-          <li>review</li>
+          <li>question</li>
+          <li>answer</li>
         </ul>
       </li>
-      <li><strong>POST - /reviews/save-to-db</strong> - Takes all the reviews saved in the memory and stores them in the database.</li>
+      <li>
+        <strong>POST - /questions/save-to-db</strong> - Takes all the questions
+        saved in the memory and stores them in the database.
+      </li>
     </ul>
 
     <h3>Reviews</h3>
@@ -49,35 +58,46 @@
         <strong>GET - /reviews</strong> - Retrieves all the reviews and answers.
       </li>
       <li>
-        <strong></strong>GET - /review/:id</strong> - Retrieves one review based on the passed id
+        <strong>GET - /review/:id</strong> - Retrieves one review based on the
+        passed id
       </li>
       <li>
-        <strong>POST - /reviews</strong>  - Requires the body to hold two JSON properties:
+        <strong>POST - /reviews</strong> - Requires the body to hold two JSON
+        properties:
         <ul>
           <li>review</li>
           <li>answer</li>
         </ul>
       </li>
       <li>
-        <strong>DELETE - /reviews/:id</strong> - Deletes one review based on the passed id
+        <strong>DELETE - /reviews/:id</strong> - Deletes one review based on the
+        passed id
       </li>
-      <li><strong>PUT - /reviews/:id</strong> - Updates one review based on the id and requires the body to hold two JSON properties:
+      <li>
+        <strong>PUT - /reviews/:id</strong> - Updates one review based on the id
+        and requires the body to hold two JSON properties:
         <ul>
           <li>review</li>
           <li>answer</li>
         </ul>
       </li>
-      <li><strong>POST - /reviews/save-to-db</strong> - Takes all the reviews saved in the memory and stores them in the database.</li>
+      <li>
+        <strong>POST - /reviews/save-to-db</strong> - Takes all the reviews
+        saved in the memory and stores them in the database.
+      </li>
     </ul>
 
     <h3>Weather API Proxy</h3>
     <ul>
       <li>
-        <strong>GET - /weather
-        </strong> - Requires a query parameter (city) and returns weather for it
+        <strong>GET - /weather </strong> - Requires a query parameter (city) and
+        returns weather for it
       </li>
     </ul>
 
-    <p>Because the client has not yet been developed for this, feel free to use a software like Postman for API calls</p>
+    <p>
+      Because the client has not yet been developed for this, feel free to use a
+      software like Postman for API calls
+    </p>
   </body>
 </html>
