@@ -9,10 +9,10 @@ This project represents a solution to the homework proposed by Open4Tech trainer
 1. Run **npm install**
 2. At **root folder create a .env file** which must contain the following variables:
 
-- API_KEY (your api key for [OpenWeatherMap API](https://openweathermap.org/api)) \_this is
-  necessary for homework 3 to work\*
-- MONGODB_URI (link to your database host) \_Database
-  used in this project is MongoDB\*
+- API_KEY (your api key for [OpenWeatherMap API](https://openweathermap.org/api)) this is
+  necessary for homework 3 to work
+- MONGODB_URI (link to your database host) Database
+  used in this project is MongoDB
 - PORT (specifies the port for the app to listen on)
 
 3. Run **npm run start** and everything should run.
