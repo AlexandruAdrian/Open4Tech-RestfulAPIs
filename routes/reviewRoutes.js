@@ -1,5 +1,6 @@
 const express = require("express");
-const Review = require("../models/reviews");
+const Review = require("../models/reviews"); // deals with saving into a file
+const ReviewModel = require("../models/reviewSchema"); // deals with saving into db
 
 function reviewRoutes() {
   const router = express.Router();
@@ -83,6 +84,22 @@ function reviewRoutes() {
       const updatedReview = await Review.updateReview(req.params.id, req.body);
 
       res.status(200).json(updatedReview);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+  });
+
+  router.post("/reviews/save-to-db", async (req, res) => {
+    try {
+      const memoryReviews = await Review.getReviews();
+
+      if (memoryReviews.length > 0) {
+        await ReviewModel.insertMany(memoryReviews);
+        return res.sendStatus(200);
+      }
+
+      res.sendStatus(204);
     } catch (err) {
       console.error(err);
       res.sendStatus(500);

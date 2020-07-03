@@ -1,5 +1,7 @@
 const express = require("express");
-const Question = require("../models/questions");
+const mongoose = require("mongoose");
+const Question = require("../models/questions"); // deals with saving into a file
+const QuestionModel = require("../models/questionSchema"); // deals with saving into db
 
 function questionRoutes() {
   const router = express.Router();
@@ -86,6 +88,22 @@ function questionRoutes() {
       );
 
       res.status(200).json(updatedQuestion);
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+  });
+
+  router.post("/questions/save-to-db", async (req, res) => {
+    try {
+      const memoryQuestions = await Question.getQuestions();
+
+      if (memoryQuestions.length > 0) {
+        await QuestionModel.insertMany(memoryQuestions);
+        return res.sendStatus(200);
+      }
+
+      res.sendStatus(204);
     } catch (err) {
       console.error(err);
       res.sendStatus(500);
