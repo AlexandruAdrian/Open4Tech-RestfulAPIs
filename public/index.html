@@ -6,6 +6,78 @@
     <title>Open4Tech - homework</title>
   </head>
   <body>
-    <h1>hello world</h1>
+    <h1>Open4Tech-RestfulAPIs</h1>
+
+    <p>
+      This project represents a solution to the homework proposed by Open4Tech
+      trainer <strong>Cristi Minica</strong> @
+      <a href="https://github.com/minicacristi/restful-apis" target="_blank"
+        >https://github.com/minicacristi/restful-apis</a
+      >
+    </p>
+    <h2>Info about routes</h2>
+    <h3>Reviews</h3>
+    <ul>
+      <li>
+        <strong>GET - /reviews</strong> - Retrieves all the reviews.
+      </li>
+      <li>
+        <strong></strong>GET - /review/:id</strong> - Retrieves one review based on the passed id
+      </li>
+      <li>
+        <strong>POST - /reviews</strong>  - Requires the body to hold two JSON properties:
+        <ul>
+          <li>subject</li>
+          <li>review</li>
+        </ul>
+      </li>
+      <li>
+        <strong>DELETE - /reviews/:id</strong> - Deletes one review based on the passed id
+      </li>
+      <li><strong>PUT - /reviews/:id</strong> - Updates one review based on the id and requires the body to hold two JSON properties:
+        <ul>
+          <li>subject</li>
+          <li>review</li>
+        </ul>
+      </li>
+      <li><strong>POST - /reviews/save-to-db</strong> - Takes all the reviews saved in the memory and stores them in the database.</li>
+    </ul>
+
+    <h3>Reviews</h3>
+    <ul>
+      <li>
+        <strong>GET - /reviews</strong> - Retrieves all the reviews and answers.
+      </li>
+      <li>
+        <strong></strong>GET - /review/:id</strong> - Retrieves one review based on the passed id
+      </li>
+      <li>
+        <strong>POST - /reviews</strong>  - Requires the body to hold two JSON properties:
+        <ul>
+          <li>review</li>
+          <li>answer</li>
+        </ul>
+      </li>
+      <li>
+        <strong>DELETE - /reviews/:id</strong> - Deletes one review based on the passed id
+      </li>
+      <li><strong>PUT - /reviews/:id</strong> - Updates one review based on the id and requires the body to hold two JSON properties:
+        <ul>
+          <li>review</li>
+          <li>answer</li>
+        </ul>
+      </li>
+      <li><strong>POST - /reviews/save-to-db</strong> - Takes all the reviews saved in the memory and stores them in the database.</li>
+    </ul>
+
+    <h3>Weather API Proxy</h3>
+    <ul>
+      <li>
+        <strong>GET - /weather
+        </strong> - Requires a query parameter (city) and returns weather for it
+      </li>
+    </ul>
+
+    <p>Because the client has not yet been developed for this, feel free to use a software like Postman for API calls</p>
   </body>
 </html>
