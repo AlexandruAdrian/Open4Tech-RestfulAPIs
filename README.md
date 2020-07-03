@@ -15,7 +15,7 @@ This project represents a solution to the homework proposed by Open4Tech trainer
   used in this project is MongoDB*
 - PORT (specifies the port for the app to listen on)
 
-3. Run **node index** and everything should run.
+3. Run **npm run start** and everything should run.
 
 ## Info about routes
 
