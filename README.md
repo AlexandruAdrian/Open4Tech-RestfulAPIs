@@ -77,7 +77,7 @@ Reviews are being saved in the **reviews.json** file
 
 ### Weather API Proxy
 
-**To use this an API key from [OpenWeatherMap API](https://openweathermap.org/api) is required**
+**To use this, an API key from [OpenWeatherMap API](https://openweathermap.org/api) is required**
 
 - **GET - /weather**
-  - Requires a query parameter (city) and returns weather for that it
+  - Requires a query parameter (city) and returns weather for it
