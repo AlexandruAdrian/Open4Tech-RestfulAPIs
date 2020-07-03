@@ -1,6 +1,6 @@
 # Open4Tech-RestfulAPIs
 
-This project represents a solution to the homework proposed by Open4Tech trainer Cristi Minica @ [https://github.com/minicacristi/restful-apis](https://github.com/minicacristi/restful-apis)
+This project represents a solution to the homework proposed by Open4Tech trainer **Cristi Minica** @ [https://github.com/minicacristi/restful-apis](https://github.com/minicacristi/restful-apis)
 
 **To run this project you must have NodeJS and NPM installed**
 
@@ -9,10 +9,10 @@ This project represents a solution to the homework proposed by Open4Tech trainer
 1. Run **npm install**
 2. At **root folder create a .env file** which must contain the following variables:
 
-- API_KEY (your api key for [OpenWeatherMap API](https://openweathermap.org/api)) _this is
-  necessary for homework 3 to work_
-- DB_URL (link to your database host) _Database
-  used in this project is MongoDB_
+- API*KEY (your api key for [OpenWeatherMap API](https://openweathermap.org/api)) \_this is
+  necessary for homework 3 to work*
+- DB*URL (link to your database host) \_Database
+  used in this project is MongoDB*
 - PORT (specifies the port for the app to listen on)
 
 3. Run **node index** and everything should run.
@@ -47,7 +47,7 @@ Questions are being saved in the **questions.json** file
 - **POST - /questions/save-to-db**
   Takes all the questions saved in the memory and stores them in the database.
 
-#### Reviews
+### Reviews
 
 Reviews are being saved in the **reviews.json** file
 
@@ -75,7 +75,7 @@ Reviews are being saved in the **reviews.json** file
 - **POST - /reviews/save-to-db**
   Takes all the questions saved in the memory and stores them in the database.
 
-#### Weather API Proxy
+### Weather API Proxy
 
 **To use this an API key from [OpenWeatherMap API](https://openweathermap.org/api) is required**
 
