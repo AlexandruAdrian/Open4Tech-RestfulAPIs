@@ -5,7 +5,7 @@ const app = express();
 require("dotenv").config();
 
 // Connect to db
-const url = process.env.MONGODB_URI || "mongodb://192.168.1.4:27017";
+const url = process.env.MONGODB_URI;
 
 (async () => {
   try {
