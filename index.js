@@ -6,13 +6,10 @@ require("dotenv").config();
 
 // Connect to db
 const url = process.env.MONGODB_URI || "mongodb://192.168.1.4:27017";
-const config = {
-  db: "heroku_6nsc5xtd",
-};
 
 (async () => {
   try {
-    const conn = await mongoose.connect(`${url}${config.db}`, {
+    const conn = await mongoose.connect(`${url}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
