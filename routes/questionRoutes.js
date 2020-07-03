@@ -62,7 +62,7 @@ function questionRoutes() {
       await Question.deleteQuestion(req.params.id);
       res.sendStatus(204);
     } catch (err) {
-      console.err(err);
+      console.error(err);
       res.sendStatus(500);
     }
   });

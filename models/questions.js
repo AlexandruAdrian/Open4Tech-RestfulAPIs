@@ -3,7 +3,7 @@ const util = require("util");
 
 class Question {
   static questions = [];
-  static QUESTIONS_FILE = "../questions.json";
+  static QUESTIONS_FILE = "questions.json";
   #id;
   #question;
   #answer;
