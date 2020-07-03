@@ -9,13 +9,13 @@ const url = process.env.MONGODB_URI || "mongodb://192.168.1.4:27017";
 
 (async () => {
   try {
-    const conn = await mongoose.connect(`${url}`, {
+    const conn = await mongoose.connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
     mongoose.set("useCreateIndex", true);
 
-    console.log(`Connected to ${config.db} database.`);
+    console.log(`Connected to the database.`);
 
     // Middlewares
     app.use(express.json());
