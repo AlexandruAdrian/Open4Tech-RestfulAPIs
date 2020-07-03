@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const Question = require("../models/questions"); // deals with saving into a file
 const QuestionModel = require("../models/questionSchema"); // deals with saving into db
 
